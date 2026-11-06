@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtual SOC Lab (SIMULATED)</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="simbanner" role="status">
+  <strong>SIMULATED EVIDENCE – NOT CAPTURED FROM A LIVE SYSTEM</strong>
+  <span>Synthetic OpenEDR events. Not connected to any endpoint, Elasticsearch or Kibana.</span>
+</div>
+<div id="shell">
+  <nav id="nav" aria-label="Main"></nav>
+  <div id="main">
+    <header id="topbar"></header>
+    <main id="view" tabindex="-1"></main>
+  </div>
+</div>
+<aside id="flyout" aria-label="Details" hidden></aside>
+<div id="toasts" aria-live="polite"></div>
+<div id="tip" role="tooltip" hidden></div>
+<noscript><p style="padding:24px;color:#fff">This local lab needs JavaScript enabled.</p></noscript>
+<script src="js/data.js"></script>
+<script src="js/kql.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+<script src="js/overview.js"></script>
+<script src="js/discover.js"></script>
+<script src="js/alerts.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/tree.js"></script>
+<script src="js/timeline.js"></script>
+<script src="js/scenarios.js"></script>
+<script>App.start();</script>
+</body>
+</html>
