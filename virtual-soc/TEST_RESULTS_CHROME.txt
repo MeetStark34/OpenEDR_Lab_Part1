@@ -1,0 +1,165 @@
+Virtual SOC Lab end-to-end test (SIMULATED data)
+Headless Google Chrome over file://
+140 passed, 0 failed
+
+## Shell and labelling
+PASS route overview renders with visible SIMULATED banner [1281]
+PASS route discover renders with visible SIMULATED banner [3190]
+PASS route alerts renders with visible SIMULATED banner [2092]
+PASS route rules renders with visible SIMULATED banner [1273]
+PASS route rules/R1 renders with visible SIMULATED banner [819]
+PASS route tree renders with visible SIMULATED banner [1584]
+PASS route timeline renders with visible SIMULATED banner [7930]
+PASS route scenarios/R1 renders with visible SIMULATED banner [1412]
+PASS route scenarios/R2 renders with visible SIMULATED banner [1630]
+PASS route scenarios/S1 renders with visible SIMULATED banner [1224]
+PASS route scenarios/S2 renders with visible SIMULATED banner [1645]
+PASS route scenarios/S3 renders with visible SIMULATED banner [1688]
+PASS route fields renders with visible SIMULATED banner [2341]
+PASS title says SIMULATED
+
+## SOC overview
+PASS KPIs match report (91, 33, 56, 2, 13 open) [91,33,56,2,13,2]
+PASS rule firing table lists the 7 enabled rules
+PASS ATT&CK chips present
+PASS clicking a chart bar zooms the window [09:30:00-09:45:00]
+PASS network tile drills into Discover [56]
+
+## Discover: every report query through the real UI
+PASS query R1 hit count equals Python truth [17]
+PASS query R1 rows are the exact expected events
+PASS query R1-TUNED hit count equals Python truth [9]
+PASS query R1-TUNED rows are the exact expected events
+PASS query R2-OUT hit count equals Python truth [27]
+PASS query R2-IN hit count equals Python truth [25]
+PASS query R2-IN rows are the exact expected events
+PASS query S1 hit count equals Python truth [1]
+PASS query S1 rows are the exact expected events
+PASS query S2-LOLBIN hit count equals Python truth [1]
+PASS query S2-LOLBIN rows are the exact expected events
+PASS query S2-PS hit count equals Python truth [2]
+PASS query S2-PS rows are the exact expected events
+PASS query S2-PS-TUNED hit count equals Python truth [1]
+PASS query S2-PS-TUNED rows are the exact expected events
+PASS query S3 hit count equals Python truth [5]
+PASS query S3 rows are the exact expected events
+
+## Discover: real keyboard and mouse
+PASS typed query with Enter returns 2 whoami events [2]
+PASS clear returns all 91
+PASS field autocomplete suggests process.parent.* [process.parent.executable process.parent.name process.parent.pid]
+PASS syntax error shown, zero rows [KQL syntax error at position 22: Expected a value]
+PASS 25 rows per page
+PASS pagination shows page 2
+PASS sorting by process.name works [System]
+PASS add column
+PASS sidebar filter narrows to 2 file events [2]
+PASS invert filter gives 89
+PASS disable filter gives 91
+PASS row expands to document
+PASS document carries SIMULATED label
+PASS JSON tab shows valid nested JSON
+PASS histogram drag zooms the time range [10:24:00-11:00:00]
+PASS zoomed hit count reduced [56]
+PASS saved search listed
+PASS CSV export carries SIMULATED header and rows [7]
+PASS NDJSON export marks _simulated
+
+## Detection rules
+PASS 10 rules, 13 alerts by default
+PASS enable tuned R1 gives 14 alerts [14]
+PASS disable S3 gives 8 alerts
+PASS live preview shows admin below threshold
+PASS saving threshold 6 removes admin alert
+PASS rule edit persists after reload
+PASS revert restores 13 alerts
+PASS bad rule KQL shows error in preview
+PASS custom rule alerts on the mshta process and network events [15]
+PASS custom rule delete restores 13
+
+## Alert management
+PASS 13 alerts listed
+PASS severity filter gives 2 [2]
+PASS alert flyout opens with label
+PASS note appears
+PASS triage check scores 1 of 1 [1 of 1 classifications match the lab answer. Turn on Lab answers to compare each alert.]
+PASS bulk acknowledge clears open
+PASS triage persists after reload
+PASS answers mode shows 3 FP
+PASS answers off hides report IDs in Discover by default
+
+## Process trees
+PASS S1 lineage explorer to winword to powershell
+PASS S1 node shows alert badge
+PASS expand all reveals every explorer descendant [26]
+PASS collapse all leaves root
+PASS twisty expands children
+PASS only alert paths hides Notepad
+PASS search highlights cradle
+PASS network and file groups present on PID 5512
+PASS group expands to event rows
+PASS event flyout opens from tree
+PASS inferred root is labelled inferred
+
+## Event timeline
+PASS 91 events plotted
+PASS 13 alert markers
+PASS lane process draws
+PASS lane user draws
+PASS lane scenario draws
+PASS lane category draws
+PASS S2 window shows 3 events [3]
+PASS follow PID draws a path
+PASS zoom out doubles the span [360]
+PASS timeline brush zooms
+
+## Scenario demonstrations
+PASS R1 replay reaches end with 2 alerts [12 of 12 events · 2 alerts]
+PASS R1 stage has content and label
+PASS R1 reset clears
+PASS R1 has investigation steps [4]
+PASS R2 replay reaches end with 2 alerts [49 of 49 events · 2 alerts]
+PASS R2 stage has content and label
+PASS R2 reset clears
+PASS R2 has investigation steps [4]
+PASS S1 replay reaches end with 1 alerts [3 of 3 events · 1 alert]
+PASS S1 stage has content and label
+PASS S1 reset clears
+PASS S1 has investigation steps [3]
+PASS S2 replay reaches end with 6 alerts [8 of 8 events · 6 alerts]
+PASS S2 stage has content and label
+PASS S2 reset clears
+PASS S2 has investigation steps [4]
+PASS S3 replay reaches end with 3 alerts [6 of 6 events · 3 alerts]
+PASS S3 stage has content and label
+PASS S3 reset clears
+PASS S3 has investigation steps [3]
+PASS Play replays live and fires S1 alert [3 of 3 events · 1 alert]
+PASS paste tester: assignment command is a MISS
+PASS paste tester: -enc is a HIT
+PASS paste tester: non-interpreter is a MISS
+PASS scenario step opens query in Discover [5]
+
+## Time window, reset, resilience
+PASS deep-linked window filters overview
+PASS reversed time range rejected
+PASS invalid time rejected
+PASS time boxes show 24-hour values
+PASS reset lab clears triage
+PASS 1366x768 overview no horizontal overflow [0/0]
+PASS 1366x768 discover no horizontal overflow [0/0]
+PASS 1366x768 alerts no horizontal overflow [0/0]
+PASS 1366x768 tree no horizontal overflow [0/0]
+PASS 1366x768 timeline no horizontal overflow [0/0]
+PASS 1366x768 scenarios/R2 no horizontal overflow [0/0]
+PASS 1024x768 overview no horizontal overflow [0/0]
+PASS 1024x768 discover no horizontal overflow [0/0]
+PASS 1024x768 alerts no horizontal overflow [0/0]
+PASS 1024x768 tree no horizontal overflow [0/0]
+PASS 1024x768 timeline no horizontal overflow [0/0]
+PASS 1024x768 scenarios/R2 no horizontal overflow [0/0]
+PASS works with storage blocked
+
+## Runtime hygiene
+PASS no JavaScript errors
+PASS no network requests beyond local files
